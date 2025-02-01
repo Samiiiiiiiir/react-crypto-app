@@ -3,21 +3,13 @@ import { Flex, Tag, Typography, Divider } from 'antd';
 import redditIcon from './../assets/reddit.svg';
 import xIcon from './../assets/x.svg';
 
+import CoinInfo from './CoinInfo';
+
 export default function CoinInfoModal({ coin }) {
   return (
     <>
-      <Flex align="center">
-        <img
-          src={coin.icon}
-          alt={coin.name}
-          width={50}
-          height={50}
-          style={{ marginRight: '1rem' }}
-        />
-        <Typography.Title level={2} style={{ margin: '0' }}>
-          ({coin.symbol}) {coin.name}
-        </Typography.Title>
-      </Flex>
+      <CoinInfo coin={coin} />
+
       <Divider />
       <Typography.Paragraph>
         <Typography.Text strong style={{ marginRight: '0.5rem' }}>
