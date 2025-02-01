@@ -33,18 +33,15 @@ const columns = [
     },
     onFilter: (value, record) => record.name.indexOf(value) === 0,
     sorter: (a, b) => a.name.toLowerCase().localeCompare(b.name.toLowerCase()),
-    sortDirections: ['descend'],
   },
   {
     title: 'Price, $',
     dataIndex: 'price',
-    defaultSortOrder: 'descend',
     sorter: (a, b) => a.price - b.price,
   },
   {
     title: 'Amount',
     dataIndex: 'amount',
-    defaultSortOrder: 'descend',
     sorter: (a, b) => a.amount - b.amount,
   },
 ];
