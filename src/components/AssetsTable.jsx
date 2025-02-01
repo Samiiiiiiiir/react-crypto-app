@@ -2,28 +2,6 @@ import { useContext } from 'react';
 import { Table } from 'antd';
 import CryptoContext from '../context/crypto-context';
 
-export default function AssetsTable() {
-  const { assets } = useContext(CryptoContext);
-
-  const data = assets.map((a) => ({
-    key: a.id,
-    name: a.name,
-    price: a.price,
-    amount: a.amount,
-  }));
-
-  return (
-    <Table
-      pagination={false}
-      columns={columns}
-      dataSource={data}
-      showSorterTooltip={{
-        target: 'sorter-icon',
-      }}
-    />
-  );
-}
-
 const columns = [
   {
     title: 'Name',
@@ -45,3 +23,26 @@ const columns = [
     sorter: (a, b) => a.amount - b.amount,
   },
 ];
+
+export default function AssetsTable() {
+  const { assets } = useContext(CryptoContext);
+  console.log(columns);
+
+  const data = assets.map((a) => ({
+    key: a.id,
+    name: a.name,
+    price: a.price,
+    amount: a.amount,
+  }));
+
+  return (
+    <Table
+      pagination={false}
+      columns={columns}
+      dataSource={data}
+      showSorterTooltip={{
+        target: 'sorter-icon',
+      }}
+    />
+  );
+}
