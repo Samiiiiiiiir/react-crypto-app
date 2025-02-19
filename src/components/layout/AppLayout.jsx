@@ -11,7 +11,7 @@ const containerStyle = {
   left: 0,
   width: '100%',
   height: '100%',
-  backgroundColor: '#001529', // Ваш цвет фона
+  backgroundColor: '#001529',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
@@ -21,20 +21,22 @@ const containerStyle = {
 export default function AppLayout() {
   const { loading } = useContext(CryptoContext);
 
-  if (loading) {
-    return (
-      <div style={containerStyle}>
-        <Spin />
-      </div>
-    );
-  }
   return (
-    <Layout>
-      <AppHeader />
-      <Layout>
-        <AppSider />
-        <AppContent />
-      </Layout>
-    </Layout>
+    <>
+      {loading && (
+        <div style={containerStyle}>
+          <Spin />
+        </div>
+      )}
+      {!loading && (
+        <Layout>
+          <AppHeader />
+          <Layout>
+            <AppSider />
+            <AppContent />
+          </Layout>
+        </Layout>
+      )}
+    </>
   );
 }
